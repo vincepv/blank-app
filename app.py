@@ -34,12 +34,6 @@ if uploaded_file is not None:
         df = category_clean(df)
         df = address_clean(df)
 
-        cleaned_csv = df.to_csv(index=False).encode('utf-8')
+        split_file(df)
         
-        # Bouton pour télécharger le fichier CSV nettoyé
-        st.download_button(
-            label="Télécharger le fichier CSV nettoyé",
-            data=cleaned_csv,
-            file_name='fichier_nettoye.csv',
-            mime='text/csv'
-        )
+      
