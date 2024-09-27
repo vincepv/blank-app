@@ -21,3 +21,9 @@ You can use GUI Anaconda Navigator to create env
    ```
    $ streamlit run streamlit_app.py
    ```
+
+### How to deploy
+
+Need streamlit account. Free streamlit cloud version is engough to start.
+You need to connect streamlit with github. 
+Once you push in github, it's deployed in steamlit cloud
