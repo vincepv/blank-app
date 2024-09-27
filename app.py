@@ -12,8 +12,11 @@ from components.address_clean import address_clean
 
 st.title("DigitaleBox CRM: nettoyage de fichiers CSV")
 st.write(
-    "Uploader fichier CSV : encodage utf8, délimiteur virgule"
+    "Uploader fichier CSV : encodage utf8, délimiteur virgule. "
 )
+st.divider()
+st.header("Pré-requis :")
+st.write ("Le CSV doit contenir les colonnes suivantes : First Name,Last Name,Email,Gender,Category,Date of Birth,Keywords, Notes, Mobile, Zip, Street Address, City,Country")
 
 
 uploaded_file = st.file_uploader("Choisissez un fichier CSV", type="csv")
