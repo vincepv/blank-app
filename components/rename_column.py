@@ -11,9 +11,15 @@ def rename_column(df):
     # Dictionnaire de renommage
     column_to_rename = {
         'Category': 'Categorie',
+        'category': 'Categorie',
         'Mobile': 'Mobile',
+        'mobile': 'Mobile',
         'First Name': 'Prénom',
+        'first name': 'Prénom',
+        'firstname': 'Prénom',
         'Last Name': 'Nom',
+        'last name': 'Nom',
+        'lastname': 'Nom',
         'Country': 'Pays',
         'Street Address': 'Adresse',
         'Zip': 'Code postal',
@@ -23,6 +29,8 @@ def rename_column(df):
         'Date of Birth': 'Date de naissance',
         'Keywords': 'Mots clés',
     }
+
+    
 
     # Renommer les colonnes
     df_renamed_column = df.rename(columns=column_to_rename)
