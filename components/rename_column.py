@@ -1,3 +1,5 @@
+from constant.column_name import CATEGORIE, PRENOM, NOM, PAYS, ADRESSE, CP, VILLE, EMAIL, SEXE, DATE_NAISSANCE, MOT_CLE
+
 def rename_column(df):
     """
     Renomme les colonnes spécifiques d'un DataFrame pandas.
@@ -8,29 +10,33 @@ def rename_column(df):
     Retourne:
     pd.DataFrame: Le DataFrame avec les colonnes renommées.
     """
+ 
+
     # Dictionnaire de renommage
     column_to_rename = {
-        'Category': 'Categorie',
-        'category': 'Categorie',
-        'Mobile': 'Mobile',
-        'mobile': 'Mobile',
-        'First Name': 'Prénom',
-        'first name': 'Prénom',
-        'firstname': 'Prénom',
-        'Last Name': 'Nom',
-        'last name': 'Nom',
-        'lastname': 'Nom',
-        'Country': 'Pays',
-        'Street Address': 'Adresse',
-        'Zip': 'Code postal',
-        'City': 'Ville',
-        'Email': 'Email',
-        'email': 'Email',
-        'mail': 'Email',
-        'MAIL': 'Email',
-        'Gender': 'Sexe',
-        'Date of Birth': 'Date de naissance',
-        'Keywords': 'Mots clés',
+        'Category': CATEGORIE,
+        'First Name': PRENOM,
+        'first name': PRENOM,
+        'firstname': PRENOM,
+        'First Name': PRENOM,
+        'first name': PRENOM,
+        'firstname': PRENOM,
+        'Last Name': NOM,
+        'last name': NOM,
+        'lastname': NOM,
+        'Country': PAYS,
+        'Street Address': ADRESSE,
+        'Zip': CP,
+        'City': VILLE,
+        'Email': EMAIL,
+        'email': EMAIL,
+        'mail': EMAIL,
+        'MAIL': EMAIL,
+        'Gender': SEXE,
+        'Date of Birth': DATE_NAISSANCE,
+        'date': DATE_NAISSANCE,
+        'Date': DATE_NAISSANCE,
+        'Keywords': MOT_CLE,
     }
 
     

@@ -1,3 +1,5 @@
+from constant.column_name import PAYS
+
 def clean_country(df):
-  df.loc[df['Pays'] == 'France', 'Pays'] = 'FR'
+  df.loc[df[PAYS] == 'France', 'Pays'] = 'FR'
   return df

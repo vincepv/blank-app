@@ -19,17 +19,19 @@ def clean_regular_file():
       st.write("Voici un aperçu du fichier chargé :")
       st.dataframe(df.head())
       
-      # Logique de nettoyage du fichier
+      
       if st.button("Nettoyer le fichier"):
 
+          # Cleaning logic
           df = clean_character(df)
           df = rename_column(df)
 
           df = date_clean(df)
+
           df = mobile_clean(df)
-          df = clean_country(df)
-          df = category_clean(df)
-          df = address_clean(df)
+          #df = clean_country(df)
+          #df = category_clean(df)
+          #df = address_clean(df)
 
           split_file(df)
         
