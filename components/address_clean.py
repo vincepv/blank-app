@@ -1,5 +1,7 @@
 import pandas as pd
 
+from constant.column_name import ADRESSE, CP
+
 
 def address_clean(df):
 
@@ -17,12 +19,17 @@ def address_clean(df):
     'nan': '',
   }
 
-  df['Code postal'] = df['Code postal'].astype(str).replace(dic_zip_code, regex=True)
+  df[CP] = df[CP].astype(str).replace(dic_zip_code, regex=True)
 
-  df['Adresse'] = df['Adresse'].fillna('')
-  df[['Numéro Rue', 'Nom Rue']] = df['Adresse'].str.extract(r'(\d+\w*)\s+(.*)', expand=True)
-  df['Numéro Rue'] = df['Numéro Rue'].fillna('')
-  df['Nom Rue'] = df.apply(lambda row: row['Adresse'] if row['Numéro Rue'] == '' else row['Nom Rue'], axis=1)
+  # prepare data
+  df[ADRESSE] = df[ADRESSE].fillna('')
+  df[ADRESSE] = df[ADRESSE].str.replace(',','')
+  df[ADRESSE] = df[ADRESSE].str.strip()
+
+  # extract street number and street name
+  # dans ADRESSE on extrait ce qui commence par des lettres, chiffres et caractères speciaux et on met dans 'Numéro Rue'
+  df['Numéro Rue'] = df[ADRESSE].str.extract(r'^(\S+)')
+  df['Nom Rue'] = df[ADRESSE].str.extract(r'(?<=\s)([\w\s]+)')
   
-  df.drop('Adresse', axis=1, inplace=True)
+  df.drop(ADRESSE, axis=1, inplace=True)
   return df

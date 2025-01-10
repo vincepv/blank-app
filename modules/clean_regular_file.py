@@ -31,9 +31,9 @@ def clean_regular_file():
           df = mobile_clean(df)
           df = clean_country(df)
           df = category_create(df)
+          df = address_clean(df)
           # prenom keep first
           # email keep first
-          #df = address_clean(df)
 
           split_file(df)
         

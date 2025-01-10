@@ -8,6 +8,10 @@ def mobile_clean(df):
     Retourne:
     pd.DataFrame: Le DataFrame avec les numéros de mobile nettoyés.
     """
+
+    if MOBILE not in df:
+        df.insert(loc=0, column=MOBILE,value = '')
+
     dic_mobile_character = {
         '\.0$': '', 
         ' ': '', 

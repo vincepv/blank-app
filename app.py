@@ -14,6 +14,6 @@ migration()
 
 
 st.divider()
-st.header("Script CSV poubelle")
+st.header("Script nettoyage CSV")
 st.write ("Le CSV doit contenir les colonnes suivantes : First Name,Last Name,Email,Gender,Category,Date of Birth,Keywords, Notes, Mobile, Zip, Street Address, City,Country")
 clean_regular_file()
