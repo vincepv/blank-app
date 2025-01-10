@@ -9,6 +9,7 @@ from components.clean_country import clean_country
 from components.split_file import split_file
 from components.address_clean import address_clean
 from components.date_clean import date_clean
+from components.firstname_clean import firstname_clean
 
 def clean_regular_file():
   uploaded_file = st.file_uploader("Choisissez un fichier CSV", type="csv", key="clean_regular_file")
@@ -32,7 +33,7 @@ def clean_regular_file():
           df = clean_country(df)
           df = category_create(df)
           df = address_clean(df)
-          # prenom keep first
+          df = firstname_clean(df)
           # email keep first
 
           split_file(df)
