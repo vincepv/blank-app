@@ -8,7 +8,6 @@ def mobile_clean(df):
     Retourne:
     pd.DataFrame: Le DataFrame avec les numéros de mobile nettoyés.
     """
-        
     dic_mobile_character = {
         '\.0$': '', 
         ' ': '', 
@@ -35,12 +34,10 @@ def mobile_clean(df):
     df[MOBILE] = df[MOBILE].astype(str).replace(dic_mobile_number, regex=True)
     
     df.loc[df[MOBILE].duplicated(), [MOBILE]] = ''
-
-   
+ 
+    # Keep only mobile numbers starting with +336 or +337, remove content after first space
     df['Mobile Other'] = df[MOBILE].copy()
-    # Remove inside [MOBILE] values not starting with +336 or +337
-    df[MOBILE] = df[MOBILE].apply(lambda x: x if str(x).startswith('+336') or str(x).startswith('+337') else None)
-    # Inside [Mobile Other] column, remove values starting with +336 or +337
-    df['Mobile Other'] = df['Mobile Other'].apply(lambda x: None if str(x).startswith('+336') or str(x).startswith('+337') else x)
+    df[MOBILE] = df[MOBILE].str.extract(r'((\+336|\+337)\d{8})')[0]
+    df['Mobile Other'] = df['Mobile Other'].str.replace(r'(\+336|\+337)\d*', '', regex=True).str.strip()
 
     return df
