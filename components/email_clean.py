@@ -10,8 +10,7 @@ def email_clean(df):
   # email keep first 
   df[EMAIL] = df[EMAIL].str.extract(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})')
 
-
-  df = df.drop_duplicates(subset=[EMAIL])
+  df.loc[df[EMAIL].duplicated(), [EMAIL]] = ''
 
   
   return df
