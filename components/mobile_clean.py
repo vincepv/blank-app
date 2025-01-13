@@ -40,8 +40,8 @@ def mobile_clean(df):
     df.loc[df[MOBILE].duplicated(), [MOBILE]] = ''
  
     # Keep only mobile numbers starting with +336 or +337, remove content after first space
-    df['Mobile Other'] = df[MOBILE].copy()
+    df['Phone'] = df[MOBILE].copy()
     df[MOBILE] = df[MOBILE].str.extract(r'((\+336|\+337)\d{8})')[0]
-    df['Mobile Other'] = df['Mobile Other'].str.replace(r'(\+336|\+337)\d*', '', regex=True).str.strip()
+    df['Phone'] = df['Phone'].str.replace(r'(\+336|\+337)\d*', '', regex=True).str.strip()
 
     return df
